@@ -10,7 +10,10 @@ public enum TokenTypes {
     Set,
 
     // Grouping * Operators
-    BinaryOperator,
+    PlusOperator,
+    MinusOperator,
+    MultOperator,
+    DivisionOperator,
     Equals,
     OpenParen,
     CloseParen,
