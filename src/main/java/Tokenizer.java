@@ -44,6 +44,9 @@ public class Tokenizer {
             if (Objects.equals(raw, "=")) {
                 return TokenTypes.Equals;
             }
+            if (Objects.equals(raw, "+")) {
+                return TokenTypes.PlusOperator;
+            }
             if (Objects.equals(raw, "(")) {
                 return TokenTypes.OpenParen;
             }
