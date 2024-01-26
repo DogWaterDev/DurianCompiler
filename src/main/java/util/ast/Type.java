@@ -8,7 +8,10 @@ public class Type {
         TYPE_INTEGER,
         TYPE_STRING,
         TYPE_ARRAY,
-        TYPE_FUNCTION
+        TYPE_FUNCTION,
+        TYPE_CLASS,
+        TYPE_LOOP,
+        TYPE_IF_ELSE,
     }
     public static class ParamList {
         String name;

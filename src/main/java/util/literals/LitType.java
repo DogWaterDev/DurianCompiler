@@ -1,4 +1,10 @@
-package util.parsing;
+package util.literals;
 
-public class LitType {
+public enum LitType {
+    INT,
+    FLOAT,
+    DOUBLE,
+    STRING,
+    CHAR,
+    BOOLEAN
 }

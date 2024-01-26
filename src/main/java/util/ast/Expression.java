@@ -9,7 +9,7 @@ public class Expression {
         EXPR_SET,
         EXPR_SUBSCRIPT,
         EXPR_LOG_NOT,
-        EXPR_CALL, // A function call is made by creating this node,such that the left-hand side is the function name
+        EXPR_CALL, // A function call is made by creating this node, such that the left-hand side is the function name
         // and the right hand side is an unbalanced tree of  EXPR_ARG nodes.
 
 
@@ -47,7 +47,7 @@ public class Expression {
     // ----------------
 
     String name; // will be set for EXPR_NAME
-    int integer_value; // will be set for EXPR_INTEGER_LITERAL
+    int integer_value; //  " EXPR_INTEGER_LITERAL (" = the above text)
     String string_literal; //  " EXPR_STRING_LITERAL
 }
 class ExpressionName extends Expression {
