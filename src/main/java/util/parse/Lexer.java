@@ -12,7 +12,7 @@ public class Lexer {
     }
 
     public List<Token> tokenize() {
-        List<String> keywords = List.of("if.else.for.while.fck.class".split("\\."));
+        List<String> keywords = List.of("if.else.for.while.fck.class.set.mut".split("\\."));
         List<Token> tokens = new ArrayList<>();
         while (position < input.length()) {
             char currentChar = input.charAt(position);
@@ -66,7 +66,10 @@ public class Lexer {
                     tokens.add(new Token(TokenType.COMMENT_START, "?"));
                     position++;
                 }
-                case '~' -> tokens.add(new Token(TokenType.COMMENT_END, "~"));
+                case '~' -> {
+                    tokens.add(new Token(TokenType.COMMENT_END, "~"));
+                    position++;
+                }
                 default -> {
                     if (Character.isDigit(currentChar)) {
                         StringBuilder value = new StringBuilder();

@@ -73,6 +73,7 @@ public class AbstractSyntaxTree {
                                 Expression.exprCreateName("x"),
                                 Expression.exprCreateName("x")),
                         null,null,null,null),null);
+        this.addDeclaration(d);
         return d;
     }
 }
