@@ -1,12 +1,13 @@
 package util.ast;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 import static util.ast.Type.VarType.*;
 
 public class AbstractSyntaxTree {
-    private List<Declaration> declarations;
+    private List<Declaration> declarations = new ArrayList<>();
 
     public List<Declaration> getDeclarations() {
         return declarations;

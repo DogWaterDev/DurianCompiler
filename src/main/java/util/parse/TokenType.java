@@ -8,5 +8,12 @@ public enum TokenType {
     MULTIPLY,
     DIVIDE,
     LPAREN,
-    RPAREN
+    RPAREN,
+    LBRACE,
+    RBRACE,
+    LBRACKET,
+    RBRACKET,
+    LINE_TERMINATOR,
+    COMMENT_END,
+    COMMENT_START,
 }
