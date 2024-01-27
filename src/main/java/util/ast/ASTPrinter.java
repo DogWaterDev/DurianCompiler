@@ -25,14 +25,7 @@ public class ASTPrinter {
     private String lvlIndentHelper(int level, String replace) {
         return new String(new char[level]).replace("\0", replace);
     }
-    public void printAST() {
-        String line = "";
-        int lvl = 1;
-        Declaration d = ast.getDeclaration(0);
-        line += String.format("|%s%s", lvlIndentHelper(lvl, "--"), d.name);
-        lvl++;
-        System.out.println(d.value.kind);
-        line += String.format(";%s", d.type.kind);
+    private String recurse(Declaration d) {
         if (!Objects.equals(d.type.kind, TYPE_FUNCTION)) {
             if (d.value.kind == Expression.ExpressionType.EXPR_BOOLEAN_LITERAL) {
                 if (d.value.integer_value == 0) {
@@ -50,7 +43,20 @@ public class ASTPrinter {
             }
             else if (d.value.kind == Expression.ExpressionType.EXPR_STRING_LITERAL) {
                 line += String.format(";'%s'", d.value.string_literal);
+
             }
+        }
+    }
+
+    public void printAST() {
+        String line = "";
+        int lvl = 1;
+        Declaration d = ast.getDeclaration(0);
+        line += String.format("|%s%s", lvlIndentHelper(lvl, "--"), d.name);
+        line += String.format(";%s", d.type.kind);
+
+        else {
+
         }
         System.out.println(line);
     }

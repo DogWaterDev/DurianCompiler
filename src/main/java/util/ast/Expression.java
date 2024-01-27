@@ -79,11 +79,12 @@ class ExpressionBooleanLiteral extends Expression {
 
 
 class ExpressionStringLiteral extends Expression {
-    private String value;
 
     public ExpressionStringLiteral(String value) {
         super(ExpressionType.EXPR_STRING_LITERAL, null, null);
-        this.value = value;
+        // i'm not sure why this works but remember,
+        // if it ain't broke don't fix it
+        this.string_literal = value;
     }
 }
 

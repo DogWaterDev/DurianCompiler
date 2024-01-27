@@ -12,7 +12,7 @@ public class Lexer {
     }
 
     public List<Token> tokenize() {
-        List<String> keywords = List.of("if.else.for.while.fck.class".split("."));
+        List<String> keywords = List.of("if.else.for.while.fck.class".split("\\."));
         List<Token> tokens = new ArrayList<>();
         while (position < input.length()) {
             char currentChar = input.charAt(position);
@@ -82,7 +82,7 @@ public class Lexer {
                             position++;
                         }
                         if (keywords.contains(value.toString())) {
-
+                            tokens.add(new Token(TokenType.KEYWORD, value.toString()));
                         }
                         else {
                             tokens.add(new Token(TokenType.IDENTIFIER, value.toString()));

@@ -1,6 +1,7 @@
 package util.parse;
 
 public enum TokenType {
+    KEYWORD,
     NUMBER,
     IDENTIFIER,
     PLUS,
