@@ -43,18 +43,6 @@ public class AbstractSyntaxTree {
     public Expression createExpression(Expression.ExpressionType kind, Expression left, Expression right) {
         return new Expression(kind, left, right);
     }
-    public void printDeclaration(Declaration d) throws IllegalAccessException {
-        System.out.println("Declaration '" + d.name + "' is of type '" + d.type.kind + "' with code:\n");
-        for (Field field : d.code.getClass().getDeclaredFields()) {
-            System.out.println(field.getName() + ": " + field.getType());
-        }
-        for (Field field : d.getClass().getDeclaredFields()) {
-            if (field.getType() == Statement.class) {
-                System.out.println("Found statement in Declaration: '" + d.name + "'. Statement name:\n" + field.getName());
-
-            }
-        }
-    }
 
 
     // test function

@@ -12,6 +12,7 @@ public class Statement {
         STMT_RETURN,
         STMT_BLOCK
     }
+    // mm yes javadoc for no reason
     /**
      * <h2>Kind: What kind of statement?</h2>
      * <ul>
@@ -102,6 +103,9 @@ public class Statement {
         this.else_body = else_body;
         this.next = next;
     }
+    /**
+    *The type of <code>Statement</code> it is (<code>StatementType</code> class)
+     **/
     StatementType kind;
     Declaration declaration;
     Expression init_expr;

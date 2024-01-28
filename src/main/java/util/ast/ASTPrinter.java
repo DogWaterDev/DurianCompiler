@@ -1,6 +1,7 @@
 package util.ast;
 import org. fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
+import util.exceptions.InvalidFunctionDeclarationError;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -8,6 +9,10 @@ import java.util.Objects;
 
 import static util.ast.Type.VarType.TYPE_FUNCTION;
 
+/**
+ * <p>This class is for the sole purpose of testing/development. It will print the contents of an AST (Abstract Syntax Tree)
+ * in a readable manner for humans to the console.</p>
+ */
 public class ASTPrinter {
     private AbstractSyntaxTree ast;
     private Ansi ansi;
@@ -50,7 +55,20 @@ public class ASTPrinter {
     }
 
     private void printFunction(Declaration d, String line) {
-
+        // check if the function is invalid (no code contained)
+        if (d.code != null) {
+            if (d.code.)
+        } else {
+            try {
+                throw new InvalidFunctionDeclarationError(
+                        String.format("Function of AST '%s' has null-code." +
+                                        " This is an invalid declaration '%s', process crashed.",
+                                this.ast, d.name)
+                );
+            } catch (InvalidFunctionDeclarationError e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
     public void printAST() {
         this.lvl = 1;
