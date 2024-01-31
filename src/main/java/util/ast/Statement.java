@@ -8,6 +8,7 @@ public class Statement {
         STMT_EXPR,
         STMT_IF_ELSE,
         STMT_FOR,
+        STMT_WHILE,
         STMT_PRINT,
         STMT_RETURN,
         STMT_BLOCK

@@ -1,10 +1,9 @@
 package util.ast;
 import org. fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
-import util.exceptions.InvalidFunctionDeclarationError;
+import util.exceptions.InvalidFunctionDeclarationException;
+import util.exceptions.InvalidStatementException;
 
-import java.lang.reflect.Field;
-import java.util.List;
 import java.util.Objects;
 
 import static util.ast.Type.VarType.TYPE_FUNCTION;
@@ -57,15 +56,37 @@ public class ASTPrinter {
     private void printFunction(Declaration d, String line) {
         // check if the function is invalid (no code contained)
         if (d.code != null) {
-            if (d.code.)
+            if (d.code.kind == Statement.StatementType.STMT_IF_ELSE) {
+                if (d.code.expr == null) {
+                    try {
+                        throw new InvalidStatementException("Statement of type STMT_IF_ELSE with no expression provided.");
+                    } catch (InvalidStatementException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                if (d.code.body == null) {
+                    try {
+                        throw new InvalidStatementException("Statement of type STMT_IF_ELSE with no expression provided.");
+                    } catch (InvalidStatementException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                if (d.code.else_body == null) {
+                    try {
+                        throw new InvalidStatementException("Statement of type STMT_IF_ELSE with no expression provided.");
+                    } catch (InvalidStatementException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
         } else {
             try {
-                throw new InvalidFunctionDeclarationError(
+                throw new InvalidFunctionDeclarationException(
                         String.format("Function of AST '%s' has null-code." +
                                         " This is an invalid declaration '%s', process crashed.",
                                 this.ast, d.name)
                 );
-            } catch (InvalidFunctionDeclarationError e) {
+            } catch (InvalidFunctionDeclarationException e) {
                 throw new RuntimeException(e);
             }
         }

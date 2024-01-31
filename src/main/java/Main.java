@@ -2,6 +2,7 @@ import org.checkerframework.checker.units.qual.A;
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 import org.jetbrains.annotations.NotNull;
+import util.Warnings;
 import util.ast.ASTPrinter;
 import util.ast.AbstractSyntaxTree;
 import util.ast.Declaration;
@@ -17,6 +18,7 @@ import static util.ast.Type.VarType.*;
 
 public class Main {
     public static void main(String @NotNull [] args) throws IOException {
+        Warnings.warn("eeeee", 1);
         Lexer lexer = new Lexer(Files.readAllLines(Path.of("C:\\Users\\ramsa\\OneDrive\\Desktop\\test\\e.txt")).toString());
         List<Token> tokens = lexer.tokenize();
         AbstractSyntaxTree ast = new AbstractSyntaxTree();
@@ -25,8 +27,6 @@ public class Main {
 //                ast.createDeclaration("test",
 //                        ast.createType(TYPE_STRING, null, null),
 //                        Expression.exprCreateStringLiteral("test"),
-//                        // here i am creating an expression of string type and giving value of "cheesecake!"
-//                        // but when i attempt to print the value i get null
 //                        null, null));
         ASTPrinter astPrinter = new ASTPrinter(ast);
         astPrinter.printAST();
